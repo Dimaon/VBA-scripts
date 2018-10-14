@@ -5,7 +5,7 @@ Sub URLPictureInsert()
     Dim xCol As Long
     On Error Resume Next
     Application.ScreenUpdating = False
-    Set Rng = ActiveSheet.Range("A2:A6")
+    Set Rng = ActiveSheet.Range("A2:A1000")
     For Each cell In Rng
         filenam = cell
         ActiveSheet.Shapes.AddPicture(filenam, True, True, 100, 100, 70, 70).Select
