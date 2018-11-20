@@ -8,7 +8,7 @@ Sub URLPictureInsert()
     Set Rng = ActiveSheet.Range("A2:A1000")
     For Each cell In Rng
         filenam = cell
-        ActiveSheet.Shapes.AddPicture(filenam, True, True, 100, 100, 70, 70).Select
+        ActiveSheet.Shapes.AddPicture2(filenam, False, True, 100, 100, 70, 70, 1).Select
         Set Pshp = Selection.ShapeRange.Item(1)
         If Pshp Is Nothing Then GoTo lab
         xCol = cell.Column + 1
