@@ -104,5 +104,17 @@ lab:
     Range("T1").Select
     ActiveCell.FormulaR1C1 = _
         "= ""Цена: "" & CHAR(10) &" & Chr(10) & """Розничная"" & CHAR(10) &" & Chr(10) & """Оптовая"" & CHAR(10) &" & Chr(10) & """Крупнооптовая"" & CHAR(10) &" & Chr(10) & """Франшизная"""
-        
+     
+    Range("T1").Select
+    With Selection
+        .HorizontalAlignment = xlLeft
+        .VerticalAlignment = xlCenter
+        .WrapText = True
+        .Orientation = 0
+        .AddIndent = False
+        .IndentLevel = 0
+        .ShrinkToFit = False
+        .ReadingOrder = xlContext
+        .MergeCells = False
+    End With
 End Sub
