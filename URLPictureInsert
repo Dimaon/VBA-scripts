@@ -1,3 +1,10 @@
+Sub setWidthAndHeightForImages()
+    Columns("B:B").ColumnWidth = 26.43
+    Cells.Select
+    Selection.RowHeight = 90
+End Sub
+
+
 Sub URLPictureInsert()
 'Updateby Extendoffice 20161116
     Dim Pshp As Shape
