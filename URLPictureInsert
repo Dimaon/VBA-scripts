@@ -34,3 +34,13 @@ lab:
     Next
     Application.ScreenUpdating = True
 End Sub
+
+# Скрывает ячейки
+Sub FormatPlan()
+    Columns("A:A").Select
+    Selection.Delete Shift:=xlToLeft
+    Columns("D").EntireColumn.Hidden = True
+    Columns("C").EntireColumn.Hidden = True
+    Columns("J:S").EntireColumn.Hidden = True
+    Columns("W:Z").EntireColumn.Hidden = True
+End Sub
