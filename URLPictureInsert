@@ -36,11 +36,21 @@ lab:
 End Sub
 
 # Скрывает ячейки
-Sub FormatPlan()
+Sub HiddenColumns()
     Columns("A:A").Select
     Selection.Delete Shift:=xlToLeft
     Columns("D").EntireColumn.Hidden = True
     Columns("C").EntireColumn.Hidden = True
     Columns("J:S").EntireColumn.Hidden = True
     Columns("W:Z").EntireColumn.Hidden = True
+End Sub
+
+Sub AutoFillAllPrices()
+    Range("T2").Select
+    ActiveCell.FormulaR1C1 = _
+        "=TEXT(RC[-4],""# ##0,00 ?"") & IF(RC[-9]>0, "" ("" & TEXT(RC[-9],""# ##0,00 ?"") & "" çà "" & RC[-5] & "" øò.)"","""")  & CHAR(10)" & Chr(10) & "& TEXT(RC[-3],""# ##0,00 ?"") & IF(RC[-8]>0, "" ("" & TEXT(RC[-8],""# ##0,00 ?"") & "" çà "" & RC[-5] & "" øò.)"","""")  & CHAR(10)" & Chr(10) & "& TEXT(RC[-2],""# ##0,00 ?"")  & IF(RC[-7]>0, "" ("" & TEXT(RC[-7],""# ##0,00 ?"") & "" çà "" & RC[-5] & " & _
+        """ øò.)"","""")  & CHAR(10)" & Chr(10) & "& TEXT(RC[-1],""# ##0,00 ?"") & IF(RC[-6]>0, "" ("" & TEXT(RC[-6],""# ##0,00 ?"") & "" çà "" & RC[-5] & "" øò.)"","""")" & _
+        ""
+    lLastRowD = Cells(Rows.Count, "F").End(xlUp).Row
+    If lLastRowD > 1 Then Range("T2:T2").AutoFill Destination:=Range("T2:T" & lLastRowD), Type:=xlFillDefault
 End Sub
