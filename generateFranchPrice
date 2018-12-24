@@ -88,4 +88,15 @@ lab:
         .ReadingOrder = xlContext
         .MergeCells = False
     End With
+    
+    Columns("U:U").Select
+    With Selection
+        .HorizontalAlignment = xlCenter
+        .Orientation = 0
+        .AddIndent = False
+        .IndentLevel = 0
+        .ShrinkToFit = False
+        .ReadingOrder = xlContext
+        .MergeCells = False
+    End With
 End Sub
