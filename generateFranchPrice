@@ -117,4 +117,17 @@ lab:
         .ReadingOrder = xlContext
         .MergeCells = False
     End With
+    
+    Columns("U:U").Select
+    Selection.Locked = False
+    Selection.FormulaHidden = False
+    Columns("V:V").Select
+    Selection.Locked = True
+    Selection.FormulaHidden = True
+    Columns("T:T").Select
+    Selection.Locked = True
+    Selection.FormulaHidden = True
+    ActiveSheet.Protect DrawingObjects:=True, Contents:=True, Scenarios:=True _
+        , AllowSorting:=True, AllowFiltering:=True
+    ActiveWindow.SmallScroll Down:=-9
 End Sub
