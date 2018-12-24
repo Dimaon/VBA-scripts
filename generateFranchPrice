@@ -34,6 +34,7 @@ lab:
     Columns("A:A").Select
     Selection.Delete Shift:=xlToLeft
     Columns("D").EntireColumn.Hidden = True
+    Columns("B").EntireColumn.Hidden = True
     Columns("C").EntireColumn.Hidden = True
     Columns("J:S").EntireColumn.Hidden = True
     Columns("W:Z").EntireColumn.Hidden = True
@@ -99,4 +100,9 @@ lab:
         .ReadingOrder = xlContext
         .MergeCells = False
     End With
+    
+    Range("T1").Select
+    ActiveCell.FormulaR1C1 = _
+        "= ""Цена: "" & CHAR(10) &" & Chr(10) & """Розничная"" & CHAR(10) &" & Chr(10) & """Оптовая"" & CHAR(10) &" & Chr(10) & """Крупнооптовая"" & CHAR(10) &" & Chr(10) & """Франшизная"""
+        
 End Sub
