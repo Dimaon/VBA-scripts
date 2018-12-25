@@ -6,10 +6,12 @@ Sub preparePrice()
     Application.ScreenUpdating = False
     Set Rng = ActiveSheet.Range("A2:A1000")
     
+    ' Подготовка столбцов и строк для картинок
     Columns("B:B").ColumnWidth = 26.43
     Cells.Select
     Selection.RowHeight = 90
     
+    ' Вставка картинок
     For Each cell In Rng
         filenam = cell
         ActiveSheet.Shapes.AddPicture2(filenam, False, True, 100, 100, 70, 70, 1).Select
@@ -31,19 +33,24 @@ lab:
     Next
     Application.ScreenUpdating = True
     
-    
+    ' Удаление лишних столбцов
     Columns("A:A").Select
     Selection.Delete Shift:=xlToLeft
+    
+    ' Удаление франшизных цен
     Columns("S:S").Select
     Selection.ClearContents
     Columns("N:N").Select
     Selection.ClearContents
+    
+    ' Скрытие лишних столбцов
     Columns("D").EntireColumn.Hidden = True
     Columns("B").EntireColumn.Hidden = True
     Columns("C").EntireColumn.Hidden = True
     Columns("J:S").EntireColumn.Hidden = True
     Columns("W:Z").EntireColumn.Hidden = True
     
+    ' Вставка формулы для показа всех типов цен
     Range("T2").Select
     ActiveCell.FormulaR1C1 = _
         "=TEXT(RC[-4],""# ##0,00 ?"") & IF(RC[-9]>0, "" ("" & TEXT(RC[-9],""# ##0,00 ?"") & "" за "" & RC[-5] & "" шт.)"","""") & CHAR(10)" & Chr(10) & "& TEXT(RC[-3],""# ##0,00 ?"") & IF(RC[-8]>0, "" ("" & TEXT(RC[-8],""# ##0,00 ?"") & "" за "" & RC[-5] & "" шт.)"","""")  & CHAR(10)" & Chr(10) & "& TEXT(RC[-2],""# ##0,00 ?"")  & IF(RC[-7]>0, "" ("" & TEXT(RC[-7],""# ##0,00 ?"") & "" за "" & RC[-5] & " & _
@@ -52,20 +59,27 @@ lab:
     lLastRowD = Cells(Rows.Count, "F").End(xlUp).Row
     If lLastRowD > 1 Then Range("T2:T2").AutoFill Destination:=Range("T2:T" & lLastRowD), Type:=xlFillDefault
     
+    ' Вставка формулы для расчета цены для одной строки
     Range("W2").Select
     ActiveCell.FormulaR1C1 = _
         "=IF(RC[-12]>0,MOD(RC21,RC15)*RC[-7] + (RC21-MOD(RC21,RC15))*RC[-12],RC21*RC[-7])"
-        
     Selection.AutoFill Destination:=Range("W2:Z2"), Type:=xlFillDefault
     If lLastRowD > 1 Then Range("W2:W2").AutoFill Destination:=Range("W2:W" & lLastRowD), Type:=xlFillDefault
     If lLastRowD > 1 Then Range("X2:X2").AutoFill Destination:=Range("X2:X" & lLastRowD), Type:=xlFillDefault
     If lLastRowD > 1 Then Range("Y2:Y2").AutoFill Destination:=Range("Y2:Y" & lLastRowD), Type:=xlFillDefault
     
+    ' Вставка формулы для расчета цены для одной строки в удобном виде
     Range("V2").Select
     ActiveCell.FormulaR1C1 = _
         "=TEXT(RC[1],""# ##0,00 ?"") & CHAR(10)" & Chr(10) & "& TEXT(RC[2],""# ##0,00 ?"") & CHAR(10)" & Chr(10) & "& TEXT(RC[3],""# ##0,00 ?"")"
     If lLastRowD > 1 Then Range("V2:V2").AutoFill Destination:=Range("V2:V" & lLastRowD), Type:=xlFillDefault
     
+     ' Вставка вывода типа цен в шапке
+    Range("T1").Select
+    ActiveCell.FormulaR1C1 = _
+        "= ""Цена: "" & CHAR(10) &" & Chr(10) & """Розничная"" & CHAR(10) &" & Chr(10) & """Оптовая"" & CHAR(10) &" & Chr(10) & """Крупнооптовая"""
+    
+    ' Вставка формулы для расчета цены в шапке
     Range("V1").Select
     ActiveCell.FormulaR1C1 = _
         "=""Итого: "" & CHAR(10)" & Chr(10) & "& ""Розн: "" & TEXT(SUM(C[1]),""# ##0,00 ?"")  &  CHAR(10)" & Chr(10) & "& ""Опт:  "" & TEXT(SUM(C[2]),""# ##0,00 ?"")  &  CHAR(10)" & Chr(10) & "& ""Крупн. опт:  "" & TEXT(SUM(C[3]),""# ##0,00 ?"")"
@@ -103,10 +117,6 @@ lab:
         .ReadingOrder = xlContext
         .MergeCells = False
     End With
-    
-    Range("T1").Select
-    ActiveCell.FormulaR1C1 = _
-        "= ""Цена: "" & CHAR(10) &" & Chr(10) & """Розничная"" & CHAR(10) &" & Chr(10) & """Оптовая"" & CHAR(10) &" & Chr(10) & """Крупнооптовая"""
      
     Range("T1").Select
     With Selection
@@ -121,6 +131,7 @@ lab:
         .MergeCells = False
     End With
     
+    ' Установка зеленого цвета для ячейки кол-во
     Range("U1").Select
     With Selection.Interior
         .Pattern = xlSolid
