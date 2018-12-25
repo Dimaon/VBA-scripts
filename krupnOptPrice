@@ -145,4 +145,6 @@ lab:
     ActiveSheet.Protect DrawingObjects:=True, Contents:=True, Scenarios:=True _
         , AllowSorting:=True, AllowFiltering:=True
     ActiveWindow.SmallScroll Down:=-9
+    
+    Range("U2").Select
 End Sub
