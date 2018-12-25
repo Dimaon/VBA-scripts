@@ -121,6 +121,15 @@ lab:
         .MergeCells = False
     End With
     
+    Range("U1").Select
+    With Selection.Interior
+        .Pattern = xlSolid
+        .PatternColor = 12632256
+        .ThemeColor = xlThemeColorAccent3
+        .TintAndShade = 0.799981688894314
+        .PatternTintAndShade = 0
+    End With
+    
     Rows("1:1").Select
     Selection.AutoFilter
     
