@@ -31,12 +31,13 @@ lab:
     Next
     Application.ScreenUpdating = True
     
+    
+    Columns("A:A").Select
+    Selection.Delete Shift:=xlToLeft
     Columns("S:S").Select
     Selection.ClearContents
     Columns("N:N").Select
     Selection.ClearContents
-    Columns("A:A").Select
-    Selection.Delete Shift:=xlToLeft
     Columns("D").EntireColumn.Hidden = True
     Columns("B").EntireColumn.Hidden = True
     Columns("C").EntireColumn.Hidden = True
@@ -62,7 +63,7 @@ lab:
     
     Range("V2").Select
     ActiveCell.FormulaR1C1 = _
-        "=TEXT(RC[1],""# ##0,00 ?"") & CHAR(10)" & Chr(10) & "& TEXT(RC[2],""# ##0,00 ?"") & CHAR(10)" & Chr(10) & "& TEXT(RC[3],""# ##0,00 ?"")  & CHAR(10)" & Chr(10) & "& TEXT(RC[4],""# ##0,00 ?"")"
+        "=TEXT(RC[1],""# ##0,00 ?"") & CHAR(10)" & Chr(10) & "& TEXT(RC[2],""# ##0,00 ?"") & CHAR(10)" & Chr(10) & "& TEXT(RC[3],""# ##0,00 ?"")"
     If lLastRowD > 1 Then Range("V2:V2").AutoFill Destination:=Range("V2:V" & lLastRowD), Type:=xlFillDefault
     
     Range("V1").Select
