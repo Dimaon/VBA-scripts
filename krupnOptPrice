@@ -121,6 +121,9 @@ lab:
         .MergeCells = False
     End With
     
+    Rows("1:1").Select
+    Selection.AutoFilter
+    
     Columns("U:U").Select
     Selection.Locked = False
     Selection.FormulaHidden = False
