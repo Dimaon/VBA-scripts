@@ -39,9 +39,21 @@ lab:
     Selection.Delete Shift:=xlToLeft
     
     ' Удаление франшизных цен
-    ' Columns("S:S").Select
+    ' Columns("R:R").Select
     ' Selection.ClearContents
     ' Columns("N:N").Select
+    ' Selection.ClearContents
+    
+    ' Удаление крупнооптовых цен
+    ' Columns("S:S").Select
+    ' Selection.ClearContents
+    ' Columns("M:M").Select
+    ' Selection.ClearContents
+    
+    ' Удаление оптовых цен
+    ' Columns("Q:Q").Select
+    ' Selection.ClearContents
+    ' Columns("L:L").Select
     ' Selection.ClearContents
     
     ' Скрытие лишних столбцов
