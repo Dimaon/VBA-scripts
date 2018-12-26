@@ -172,6 +172,10 @@ lab:
         .PatternTintAndShade = 0
     End With
     
+   ' Фиксированная ширина для Цены и Итоговой цены
+    Columns("T:T").ColumnWidth = 25
+    Columns("V:V").ColumnWidth = 25
+    
     Rows("A1:V1").Select
     Selection.AutoFilter
     
@@ -193,9 +197,6 @@ lab:
         .SplitRow = 1
     End With
     ActiveWindow.FreezePanes = True
-    
-    Columns("T:T").ColumnWidth = 25
-    Columns("V:V").ColumnWidth = 25
     
     Range("U2").Select
 End Sub
