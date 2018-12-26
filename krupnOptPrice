@@ -194,8 +194,8 @@ lab:
     End With
     ActiveWindow.FreezePanes = True
     
-    Columns("T:T").ColumnWidth = 25.00
-    Columns("V:V").ColumnWidth = 25.00
+    Columns("T:T").ColumnWidth = 25
+    Columns("V:V").ColumnWidth = 25
     
     Range("U2").Select
 End Sub
