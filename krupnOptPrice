@@ -153,6 +153,17 @@ lab:
     End With
     ActiveWindow.FreezePanes = True
     
+    ' Скрытие формул
+    Columns("U:U").Select
+    Selection.Locked = False
+    Selection.FormulaHidden = False
+    Columns("T:T").Select
+    Selection.Locked = True
+    Selection.FormulaHidden = True
+    Columns("V:V").Select
+    Selection.Locked = True
+    Selection.FormulaHidden = True
+    
     Range("U2").Select
     
     ActiveWorkbook.SaveAs Filename:= _
