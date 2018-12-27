@@ -162,7 +162,7 @@ lab:
     ' Удаление франшизных цен
     Columns("S:S").Select
     Selection.ClearContents
-    Columns("K:K").Select
+    Columns("N:N").Select
     Selection.ClearContents
     
     Range("U2").Select
@@ -174,7 +174,7 @@ lab:
     ' Удаление крупнооптовых цен
     Columns("R:R").Select
     Selection.ClearContents
-    Columns("L:L").Select
+    Columns("M:M").Select
     Selection.ClearContents
     
     Range("U2").Select
@@ -184,9 +184,9 @@ lab:
         , FileFormat:=xlOpenXMLWorkbook, CreateBackup:=False
     
     ' Удаление оптовых цен
-    Columns("M:M").Select
-    Selection.ClearContents
     Columns("Q:Q").Select
+    Selection.ClearContents
+    Columns("L:L").Select
     Selection.ClearContents
 
     Range("U2").Select
