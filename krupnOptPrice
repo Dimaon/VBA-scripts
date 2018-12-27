@@ -38,24 +38,6 @@ lab:
     Columns("A:A").Select
     Selection.Delete Shift:=xlToLeft
     
-    ' Удаление франшизных цен
-    ' Columns("R:R").Select
-    ' Selection.ClearContents
-    ' Columns("N:N").Select
-    ' Selection.ClearContents
-    
-    ' Удаление крупнооптовых цен
-    ' Columns("S:S").Select
-    ' Selection.ClearContents
-    ' Columns("M:M").Select
-    ' Selection.ClearContents
-    
-    ' Удаление оптовых цен
-    ' Columns("Q:Q").Select
-    ' Selection.ClearContents
-    ' Columns("L:L").Select
-    ' Selection.ClearContents
-    
     ' Скрытие лишних столбцов
     Columns("D").EntireColumn.Hidden = True
     Columns("B").EntireColumn.Hidden = True
@@ -172,8 +154,41 @@ lab:
         .SplitRow = 1
     End With
     ActiveWindow.FreezePanes = True
+
+    ' Удаление франшизных цен
+    Columns("L:L").Select
+    Selection.ClearContents
+    Columns("T:T").Select
+    Selection.ClearContents
     
     Range("U2").Select
+    
+    ActiveWorkbook.SaveAs Filename:= _
+        "S:\ТЕКУЩЕЕ\4. ПРАЙСЫ\Прайс новый формат\27.12.2018_крупнопт_RealTouch.xlsx" _
+        , FileFormat:=xlOpenXMLWorkbook, CreateBackup:=False
+    
+    ' Удаление крупнооптовых цен
+    Columns("S:S").Select
+    Selection.ClearContents
+    Columns("M:M").Select
+    Selection.ClearContents
+    
+    Range("U2").Select
+    
+    ActiveWorkbook.SaveAs Filename:= _
+        "S:\ТЕКУЩЕЕ\4. ПРАЙСЫ\Прайс новый формат\27.12.2018_опт_RealTouch.xlsx" _
+        , FileFormat:=xlOpenXMLWorkbook, CreateBackup:=False
+    
+    ' Удаление оптовых цен
+    Columns("N:N").Select
+    Selection.ClearContents
+    Columns("R:R").Select
+    Selection.ClearContents
+
+    Range("U2").Select
+    
+    ActiveWorkbook.SaveAs Filename:= _
+        "S:\ТЕКУЩЕЕ\4. ПРАЙСЫ\Прайс новый формат\27.12.2018_розн_RealTouch.xlsx" _
+        , FileFormat:=xlOpenXMLWorkbook, CreateBackup:=False
+
 End Sub
-
-
