@@ -154,11 +154,17 @@ lab:
         .SplitRow = 1
     End With
     ActiveWindow.FreezePanes = True
+    
+     Range("U2").Select
+    
+    ActiveWorkbook.SaveAs Filename:= _
+        "S:\ТЕКУЩЕЕ\4. ПРАЙСЫ\Прайс новый формат\27.12.2018_франш_RealTouch.xlsx" _
+        , FileFormat:=xlOpenXMLWorkbook, CreateBackup:=False
 
     ' Удаление франшизных цен
-    Columns("L:L").Select
+    Columns("S:S").Select
     Selection.ClearContents
-    Columns("T:T").Select
+    Columns("K:K").Select
     Selection.ClearContents
     
     Range("U2").Select
@@ -168,9 +174,9 @@ lab:
         , FileFormat:=xlOpenXMLWorkbook, CreateBackup:=False
     
     ' Удаление крупнооптовых цен
-    Columns("S:S").Select
+    Columns("R:R").Select
     Selection.ClearContents
-    Columns("M:M").Select
+    Columns("L:L").Select
     Selection.ClearContents
     
     Range("U2").Select
@@ -180,9 +186,9 @@ lab:
         , FileFormat:=xlOpenXMLWorkbook, CreateBackup:=False
     
     ' Удаление оптовых цен
-    Columns("N:N").Select
+    Columns("M:M").Select
     Selection.ClearContents
-    Columns("R:R").Select
+    Columns("Q:Q").Select
     Selection.ClearContents
 
     Range("U2").Select
