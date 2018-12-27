@@ -156,8 +156,8 @@ lab:
     Range("U2").Select
     
     ActiveWorkbook.SaveAs Filename:= _
-        "S:\ТЕКУЩЕЕ\4. ПРАЙСЫ\Прайс новый формат\27.12.2018_франш_RealTouch.xlsx" _
-        , FileFormat:=xlOpenXMLWorkbook, CreateBackup:=False
+        "S:\ТЕКУЩЕЕ\4. ПРАЙСЫ\Прайс новый формат\" & Date & "_франш_RealTouch.xlsx", FileFormat:=xlOpenXMLWorkbook _
+        , CreateBackup:=False
 
     ' Удаление франшизных цен
     Columns("S:S").Select
@@ -168,7 +168,7 @@ lab:
     Range("U2").Select
     
     ActiveWorkbook.SaveAs Filename:= _
-        "S:\ТЕКУЩЕЕ\4. ПРАЙСЫ\Прайс новый формат\27.12.2018_крупнопт_RealTouch.xlsx" _
+        "S:\ТЕКУЩЕЕ\4. ПРАЙСЫ\Прайс новый формат\" & Date & "_крупнопт_RealTouch.xlsx" _
         , FileFormat:=xlOpenXMLWorkbook, CreateBackup:=False
     
     ' Удаление крупнооптовых цен
@@ -180,7 +180,7 @@ lab:
     Range("U2").Select
     
     ActiveWorkbook.SaveAs Filename:= _
-        "S:\ТЕКУЩЕЕ\4. ПРАЙСЫ\Прайс новый формат\27.12.2018_опт_RealTouch.xlsx" _
+        "S:\ТЕКУЩЕЕ\4. ПРАЙСЫ\Прайс новый формат\" & Date & "_опт_RealTouch.xlsx" _
         , FileFormat:=xlOpenXMLWorkbook, CreateBackup:=False
     
     ' Удаление оптовых цен
@@ -192,7 +192,9 @@ lab:
     Range("U2").Select
     
     ActiveWorkbook.SaveAs Filename:= _
-        "S:\ТЕКУЩЕЕ\4. ПРАЙСЫ\Прайс новый формат\27.12.2018_розн_RealTouch.xlsx" _
+        "S:\ТЕКУЩЕЕ\4. ПРАЙСЫ\Прайс новый формат\" & Date & "_розн_RealTouch.xlsx" _
         , FileFormat:=xlOpenXMLWorkbook, CreateBackup:=False
 
 End Sub
+
+
