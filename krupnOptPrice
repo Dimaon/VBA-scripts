@@ -48,11 +48,8 @@ lab:
     ' Вставка формулы для показа всех типов цен
     Range("T2").Select
     ActiveCell.FormulaR1C1 = _
-        "=TEXT(RC[-4],""# ##0,00 ?"") & IF(RC[-9]>0, "" ("" & TEXT(RC[-9],""# ##0,00 ?"") & "" за "" & RC[-5] & "" шт.)"","""") & CHAR(10)" & Chr(10) & _
-        "& IF(R2C13>0,TEXT(RC[-3],""# ##0,00 ?"") & IF(RC[-8]>0, "" ("" & TEXT(RC[-8],""# ##0,00 ?"") & "" за "" & RC[-5] & "" шт.)"","""")  & CHAR(10),"""")" & Chr(10) & _
-        "& IF(R2C12>0,TEXT(RC[-2],""# ##0,00 ?"")  & IF(RC[-7]>0, "" ("" & TEXT(RC[-7],""# ##0,00 " & _
-        "?"") & "" за "" & RC[-5] & "" шт.)"","""")  & CHAR(10),"""")" & Chr(10) & _
-        "&  IF(R2C11>0,TEXT(RC[-1],""# ##0,00 ?"")  & IF(RC[-6]>0, "" ("" & TEXT(RC[-6],""# ##0,00 ?"") & "" за "" & RC[-5] & "" шт.)"","""")  & CHAR(10),"""")" & _
+        "=TEXT(RC[-4],""# ##0,00 ?"") & IF(RC[-9]>0, "" ("" & TEXT(RC[-9],""# ##0,00 ?"") & "" за "" & RC[-5] & "" шт.)"","""") & CHAR(10)" & Chr(10) & "& IF(RC[-3]>0,TEXT(RC[-3],""# ##0,00 ?"") & IF(RC[-8]>0, "" ("" & TEXT(RC[-8],""# ##0,00 ?"") & "" за "" & RC[-5] & "" шт.)"","""")  & CHAR(10),"""")" & Chr(10) & "& IF(RC[-2]>0,TEXT(RC[-2],""# ##0,00 ?"")  & IF(RC[-7]>0, "" ("" & TEXT(RC[-7],""# ##0,0" & _
+        "0 ?"") & "" за "" & RC[-5] & "" шт.)"","""")  & CHAR(10),"""")" & Chr(10) & "&  IF(RC[-1]>0,TEXT(RC[-1],""# ##0,00 ?"")  & IF(RC[-6]>0, "" ("" & TEXT(RC[-6],""# ##0,00 ?"") & "" за "" & RC[-5] & "" шт.)"","""")  & CHAR(10),"""")" & _
         ""
     lLastRowD = Cells(Rows.Count, "F").End(xlUp).Row
     If lLastRowD > 1 Then Range("T2:T2").AutoFill Destination:=Range("T2:T" & lLastRowD), Type:=xlFillDefault
@@ -60,7 +57,7 @@ lab:
       ' Вставка вывода типа цен в шапке
     Range("T1").Select
     ActiveCell.FormulaR1C1 = _
-        "= ""Цена: "" & CHAR(10) &" & Chr(10) & """Розничная""" & Chr(10) & "& IF(R2C13>0,CHAR(10) & ""Оптовая"" & CHAR(10),"""" )" & Chr(10) & "& IF(R2C12>0,""Крупнооптовая""& CHAR(10),"""")" & Chr(10) & "& IF(R2C11>0,""Франшизная"","""")"
+        "= ""Цена: "" & CHAR(10) &" & Chr(10) & """Розничная""" & Chr(10) & "& IF(R2C17>0,CHAR(10) & ""Оптовая"" & CHAR(10),"""" )" & Chr(10) & "& IF(R2C18>0,""Крупнооптовая""& CHAR(10),"""")" & Chr(10) & "& IF(R2C19>0,""Франшизная"","""")"
         
     ' Вставка формулы для расчета цены в шапке
     Range("V1").Select
@@ -70,9 +67,9 @@ lab:
     Range("V2").Select
     ActiveCell.FormulaR1C1 = _
         "=TEXT(RC[1],""# ##0,00 ?"") & CHAR(10)" & Chr(10) & _
-        "& IF(R2C13>0,TEXT(RC[2],""# ##0,00 ?"") & CHAR(10),"""")" & Chr(10) & _
-        "& IF(R2C12>0,TEXT(RC[3],""# ##0,00 ?"") & CHAR(10),"""")" & Chr(10) & _
-        "&  IF(R2C11>0,TEXT(RC[4],""# ##0,00 ?"") & CHAR(10),"""")"
+        "& IF(RC[2]>0,TEXT(RC[2],""# ##0,00 ?"") & CHAR(10),"""")" & Chr(10) & _
+        "& IF(RC[3]>0,TEXT(RC[3],""# ##0,00 ?"") & CHAR(10),"""")" & Chr(10) & _
+        "&  IF(RC[4]>0,TEXT(RC[4],""# ##0,00 ?"") & CHAR(10),"""")"
     If lLastRowD > 1 Then Range("V2:V2").AutoFill Destination:=Range("V2:V" & lLastRowD), Type:=xlFillDefault
     
     ' Вставка формулы для расчета цены для одной строки
@@ -155,7 +152,7 @@ lab:
     End With
     ActiveWindow.FreezePanes = True
     
-     Range("U2").Select
+    Range("U2").Select
     
     ActiveWorkbook.SaveAs Filename:= _
         "S:\ТЕКУЩЕЕ\4. ПРАЙСЫ\Прайс новый формат\27.12.2018_франш_RealTouch.xlsx" _
