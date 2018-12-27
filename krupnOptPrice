@@ -62,7 +62,7 @@ lab:
     ' Вставка формулы для расчета цены в шапке
     Range("V1").Select
     ActiveCell.FormulaR1C1 = _
-        "=""Итого: "" & CHAR(10)" & Chr(10) & "& ""Розн: "" & TEXT(SUM(C[1]),""# ##0,00 ?"") & CHAR(10)" & Chr(10) & "& IF(R2C13>0,""Опт: "" & TEXT(SUM(C[2]),""# ##0,00 ?"") & CHAR(10),"""" )" & Chr(10) & "&IF(R2C12>0,""Крупн. опт:  "" & TEXT(SUM(C[3]),""# ##0,00 ?"") & CHAR(10),"""")" & Chr(10) & "& IF(R2C11>0, ""Франшизная:  "" & TEXT(SUM(C[4]),""# ##0,00 ?"") & CHAR(10),"""")"
+        "=""Итого: "" & CHAR(10)" & Chr(10) & "& ""Розн: "" & TEXT(SUM(C[1]),""# ##0,00 ?"") & CHAR(10)" & Chr(10) & "& IF(R2C17>0,""Опт: "" & TEXT(SUM(C[2]),""# ##0,00 ?"") & CHAR(10),"""" )" & Chr(10) & "&IF(R2C18>0,""Крупн. опт:  "" & TEXT(SUM(C[3]),""# ##0,00 ?"") & CHAR(10),"""")" & Chr(10) & "& IF(R2C19>0, ""Франшизная:  "" & TEXT(SUM(C[4]),""# ##0,00 ?"") & CHAR(10),"""")"
     ' Вставка формулы для расчета цены для одной строки в удобном виде
     Range("V2").Select
     ActiveCell.FormulaR1C1 = _
@@ -80,6 +80,7 @@ lab:
     If lLastRowD > 1 Then Range("W2:W2").AutoFill Destination:=Range("W2:W" & lLastRowD), Type:=xlFillDefault
     If lLastRowD > 1 Then Range("X2:X2").AutoFill Destination:=Range("X2:X" & lLastRowD), Type:=xlFillDefault
     If lLastRowD > 1 Then Range("Y2:Y2").AutoFill Destination:=Range("Y2:Y" & lLastRowD), Type:=xlFillDefault
+    If lLastRowD > 1 Then Range("Z2:Z2").AutoFill Destination:=Range("Z2:Z" & lLastRowD), Type:=xlFillDefault
     
     Columns("V:V").Select
     With Selection
